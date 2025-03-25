@@ -1,6 +1,5 @@
-// Função de Juros Simples... oi oi oi 
-console.log("Hello, test1");
-function calcularJurosSimples() {
+// Função de Juros Simples
+const calcularJurosSimples = () => {
     let P = parseFloat(document.getElementById("principal-simples").value);
     let i = parseFloat(document.getElementById("taxa-simples").value) / 100;
     let anos = parseInt(document.getElementById("anos-simples").value) || 0;
@@ -26,7 +25,7 @@ function calcularJurosSimples() {
 }
 
 // Função de Juros Compostos
-function calcularJurosCompostos() {
+const calcularJurosCompostos = () => {
     let P = parseFloat(document.getElementById("principal-compostos").value);
     let i = parseFloat(document.getElementById("taxa-compostos").value) / 100;
     let anos = parseInt(document.getElementById("anos-compostos").value) || 0;
