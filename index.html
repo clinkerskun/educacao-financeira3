@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
     <title>Calculadora Financeira</title>
+    <script src="scripts.js" defer></script>
     <style>
         body {
             margin: 0;
@@ -36,6 +37,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             width: 90%;
             max-width: 400px;
+            margin-bottom: 20px;
         }
         label {
             margin: 8px 0 4px;
@@ -66,7 +68,7 @@
         button:hover {
             background: #3700b3;
         }
-        #resultado {
+        #resultado-simples, #resultado-compostos {
             margin-top: 16px;
             font-size: 1.2rem;
             text-align: center;
@@ -80,21 +82,44 @@
     </style>
 </head>
 <body>
-    <script src="scripts.js"></script>
     <div class="app-bar">Calculadora Financeira</div>
     <div class="container">
+        <!-- Juros Simples -->
         <div class="calculator">
-            <label for="capital">Capital Inicial (R$):</label>
-            <input type="number" id="capital" placeholder="Ex: 1000">
+            <h2>Juros Simples</h2>
+            <label for="principal-simples">Capital Inicial (R$):</label>
+            <input type="number" id="principal-simples" placeholder="Ex: 1000">
 
-            <label for="taxa">Taxa de Juros (% ao mês):</label>
-            <input type="number" id="taxa" placeholder="Ex: 5">
+            <label for="taxa-simples">Taxa de Juros (% ao mês):</label>
+            <input type="number" id="taxa-simples" placeholder="Ex: 5">
 
-            <label for="tempo">Tempo (meses):</label>
-            <input type="number" id="tempo" placeholder="Ex: 12">
+            <label for="anos-simples">Anos:</label>
+            <input type="number" id="anos-simples" placeholder="Ex: 1">
 
-            <button onclick="calcularJurosCompostos()">Calcular</button>
-            <h2 id="resultado"></h2>
+            <label for="meses-simples">Meses:</label>
+            <input type="number" id="meses-simples" placeholder="Ex: 6">
+
+            <button onclick="calcularJurosSimples()">Calcular Juros Simples</button>
+            <h2 id="resultado-simples"></h2>
+        </div>
+
+        <!-- Juros Compostos -->
+        <div class="calculator">
+            <h2>Juros Compostos</h2>
+            <label for="principal-compostos">Capital Inicial (R$):</label>
+            <input type="number" id="principal-compostos" placeholder="Ex: 1000">
+
+            <label for="taxa-compostos">Taxa de Juros (% ao mês):</label>
+            <input type="number" id="taxa-compostos" placeholder="Ex: 5">
+
+            <label for="anos-compostos">Anos:</label>
+            <input type="number" id="anos-compostos" placeholder="Ex: 1">
+
+            <label for="meses-compostos">Meses:</label>
+            <input type="number" id="meses-compostos" placeholder="Ex: 6">
+
+            <button onclick="calcularJurosCompostos()">Calcular Juros Compostos</button>
+            <h2 id="resultado-compostos"></h2>
         </div>
     </div>
     <div class="footer">
