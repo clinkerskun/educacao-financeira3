@@ -13,7 +13,7 @@ function calcularJurosSimples() {
     }
 
     // Conversão do tempo total para anos (meses viram fração de ano)
-    let t = anos + meses / 12;
+    let t = anos + (meses / 12); // Correção: meses dividido por 12 para transformar em fração de ano
 
     // Cálculo de Juros Simples
     let J = P * i * t;
@@ -40,7 +40,7 @@ function calcularJurosCompostos() {
     }
 
     // Conversão do tempo total para anos (meses viram fração de ano)
-    let t = anos + meses / 12;
+    let t = anos + (meses / 12);  // Correção: meses dividido por 12 para transformar em fração de ano
 
     // Cálculo de Juros Compostos
     let F = P * Math.pow((1 + i), t);  // Montante final
