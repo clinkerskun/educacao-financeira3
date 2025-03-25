@@ -1,3 +1,4 @@
+/* Modo Escuro - Estilo Moderno */
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -5,7 +6,7 @@ body {
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .app-bar {
@@ -14,6 +15,7 @@ body {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .container {
@@ -22,54 +24,47 @@ body {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    padding: 20px;
 }
 
-.calculator {
+.info {
     background: #1e1e1e;
     padding: 24px;
     border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     max-width: 400px;
+    text-align: center;
 }
 
-label {
-    margin: 8px 0 4px;
-    display: block;
+h1 {
+    color: #bb86fc;
 }
 
-input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 8px;
+p {
+    line-height: 1.6;
+}
+
+code {
     background: #2c2c2c;
-    color: #ffffff;
-    font-size: 1rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: #bb86fc;
 }
 
-button {
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
     background: #6200ea;
     color: #ffffff;
-    border: none;
-    padding: 12px;
+    text-decoration: none;
     border-radius: 8px;
     font-size: 1.2rem;
-    width: 100%;
-    cursor: pointer;
-    margin-top: 12px;
     transition: background 0.2s;
 }
 
-button:hover {
+.button:hover {
     background: #3700b3;
-}
-
-#resultado {
-    margin-top: 16px;
-    font-size: 1.2rem;
-    text-align: center;
 }
 
 .footer {
@@ -77,4 +72,5 @@ button:hover {
     padding: 16px;
     background: #1f1f1f;
     font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
