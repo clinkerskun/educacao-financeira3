@@ -1,57 +1,51 @@
- // Função de Juros Simples
-console.log("Hello, test1");
-        function calcularJurosSimples() {
-            let P = parseFloat(document.getElementById("principal-simples").value);
-            let i = parseFloat(document.getElementById("taxa-simples").value) / 100;
-            let anos = parseInt(document.getElementById("anos-simples").value) || 0;
-            let meses = parseInt(document.getElementById("meses-simples").value) || 0;
+// Função para calcular os juros simples
+function calcularJurosSimples() {
+    // Obtendo os valores de entrada
+    let principal = parseFloat(document.getElementById("principal-simples").value);
+    let taxa = parseFloat(document.getElementById("taxa-simples").value) / 100;  // Convertendo para decimal
+    let anos = parseInt(document.getElementById("anos-simples").value);
+    let meses = parseInt(document.getElementById("meses-simples").value);
 
-            // Verificação de campos vazios
-            if (isNaN(P) || isNaN(i) || (anos === 0 && meses === 0)) {
-                alert("Preencha todos os campos corretamente.");
-                return;
-            }
+    // Verificação de campos vazios ou inválidos
+    if (isNaN(principal) || isNaN(taxa) || isNaN(anos) || isNaN(meses) || principal <= 0 || taxa <= 0) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+    }
 
-            // Convertendo anos para meses e somando com os meses adicionais
-            let totalMeses = anos * 12 + meses;  // total de meses
+    // Convertendo o tempo total para meses
+    let totalMeses = (anos * 12) + meses;
 
-            // Cálculo de Juros Simples
-            let J = P * i * totalMeses;  // Juros simples é simplesmente a taxa multiplicada pelo tempo em meses
-            let M = P + J;  // Montante final (capital + juros)
+    // Cálculo de Juros Simples
+    let juros = principal * taxa * totalMeses;
+    let montante = principal + juros;
 
-            // Exibe o resultado
-            let resultado = `Os juros simples são R$ ${J.toFixed(2)}. O montante final é R$ ${M.toFixed(2)}.`;
-            let elementoResultado = document.getElementById("resultado-simples");
-            elementoResultado.innerText = resultado;
-            elementoResultado.classList.add("mostrar");
-        }
+    // Exibindo o resultado
+    let resultado = `Juros Simples: R$ ${juros.toFixed(2)}<br>Montante Final: R$ ${montante.toFixed(2)}`;
+    document.getElementById("resultado-simples").innerHTML = resultado;
+}
 
-        // Função de Juros Compostos
-        function calcularJurosCompostos() {
-            let P = parseFloat(document.getElementById("principal-compostos").value);
-            let i = parseFloat(document.getElementById("taxa-compostos").value) / 100;
-            let anos = parseInt(document.getElementById("anos-compostos").value) || 0;
-            let meses = parseInt(document.getElementById("meses-compostos").value) || 0;
+// Função para calcular os juros compostos
+function calcularJurosCompostos() {
+    // Obtendo os valores de entrada
+    let principal = parseFloat(document.getElementById("principal-compostos").value);
+    let taxa = parseFloat(document.getElementById("taxa-compostos").value) / 100;  // Convertendo para decimal
+    let anos = parseInt(document.getElementById("anos-compostos").value);
+    let meses = parseInt(document.getElementById("meses-compostos").value);
 
-            // Verificação de campos vazios
-            if (isNaN(P) || isNaN(i) || (anos === 0 && meses === 0)) {
-                alert("Preencha todos os campos corretamente.");
-                return;
-            }
+    // Verificação de campos vazios ou inválidos
+    if (isNaN(principal) || isNaN(taxa) || isNaN(anos) || isNaN(meses) || principal <= 0 || taxa <= 0) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+    }
 
-            // Convertendo anos para meses e somando com os meses adicionais
-            let totalMeses = anos * 12 + meses;  // total de meses
+    // Convertendo o tempo total para meses
+    let totalMeses = (anos * 12) + meses;
 
-            // Cálculo de Juros Compostos
-            let F = P * Math.pow((1 + i), totalMeses);  // O montante final é calculado mês a mês
-            let J = F - P;  // Juros compostos (montante - capital inicial)
+    // Cálculo de Juros Compostos
+    let montante = principal * Math.pow((1 + taxa), totalMeses);
+    let juros = montante - principal;
 
-            // Exibe o resultado
-            let resultado = `Os juros compostos são R$ ${J.toFixed(2)}. O montante final é R$ ${F.toFixed(2)}.`;
-            let elementoResultado = document.getElementById("resultado-compostos");
-            elementoResultado.innerText = resultado;
-            elementoResultado.classList.add("mostrar");
-        }
-    </script>
-</body>
-</html>
+    // Exibindo o resultado
+    let resultado = `Juros Compostos: R$ ${juros.toFixed(2)}<br>Montante Final: R$ ${montante.toFixed(2)}`;
+    document.getElementById("resultado-compostos").innerHTML = resultado;
+}
