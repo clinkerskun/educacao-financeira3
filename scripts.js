@@ -1,4 +1,4 @@
-// Função de Juros Simples... oi oi oi 
+// Função de Juros Simples
 console.log("Hello, test1");
 function calcularJurosSimples() {
     let P = parseFloat(document.getElementById("principal-simples").value);
@@ -17,9 +17,10 @@ function calcularJurosSimples() {
 
     // Cálculo de Juros Simples
     let J = P * i * t;
-    let resultado = `Os juros simples são R$ ${J.toFixed(2)}.`;
-
+    let M = P + J;  // Montante final (capital + juros)
+    
     // Exibe o resultado
+    let resultado = `Os juros simples são R$ ${J.toFixed(2)}. O montante final é R$ ${M.toFixed(2)}.`;
     let elementoResultado = document.getElementById("resultado-simples");
     elementoResultado.innerText = resultado;
     elementoResultado.classList.add("mostrar");
@@ -42,10 +43,11 @@ function calcularJurosCompostos() {
     let t = anos + meses / 12;
 
     // Cálculo de Juros Compostos
-    let F = P * Math.pow((1 + i), t);
-    let resultado = `O montante final é R$ ${F.toFixed(2)}.`;
-
+    let F = P * Math.pow((1 + i), t);  // Montante final
+    let J = F - P;  // Juros compostos (montante - capital inicial)
+    
     // Exibe o resultado
+    let resultado = `Os juros compostos são R$ ${J.toFixed(2)}. O montante final é R$ ${F.toFixed(2)}.`;
     let elementoResultado = document.getElementById("resultado-compostos");
     elementoResultado.innerText = resultado;
     elementoResultado.classList.add("mostrar");
