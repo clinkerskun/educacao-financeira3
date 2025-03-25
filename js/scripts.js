@@ -1,29 +1,47 @@
-function calcularJurosSimples() {
-    let P = parseFloat(document.getElementById("principal-simples").value);
-    let i = parseFloat(document.getElementById("taxa-simples").value) / 100;
-    let t = parseFloat(document.getElementById("tempo-simples").value);
+function calcularJurosCompostos() {
+    var capital = document.getElementById('capital').value.trim();
+    var taxa = document.getElementById('taxa').value.trim();
+    var tempo = document.getElementById('tempo').value.trim();
 
-    if (isNaN(P) || isNaN(i) || isNaN(t)) {
-        alert("Por favor, preencha todos os campos corretamente.");
+    if (!capital || !taxa || !tempo) {
+        alert('Preencha todos os campos!');
         return;
     }
 
-    let J = P * i * t;
-    let resultado = `Os juros simples são R$ ${J.toFixed(2)}.`;
-    document.getElementById("resultado-simples").innerText = resultado;
+    capital = parseFloat(capital);
+    taxa = parseFloat(taxa) / 100;
+    tempo = parseInt(tempo);
+
+    if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) {
+        alert('Por favor, insira valores válidos!');
+        return;
+    }
+
+    var montante = capital * Math.pow((1 + taxa), tempo);
+
+    document.getElementById('resultado').innerText = 'Montante: R$ ' + montante.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function calcularJurosCompostos() {
-    let P = parseFloat(document.getElementById("principal-compostos").value);
-    let i = parseFloat(document.getElementById("taxa-compostos").value) / 100;
-    let t = parseFloat(document.getElementById("tempo-compostos").value);
+function calcularJurosSimples() {
+    var capital = document.getElementById('capital').value.trim();
+    var taxa = document.getElementById('taxa').value.trim();
+    var tempo = document.getElementById('tempo').value.trim();
 
-    if (isNaN(P) || isNaN(i) || isNaN(t)) {
-        alert("Por favor, preencha todos os campos corretamente.");
+    if (!capital || !taxa || !tempo) {
+        alert('Preencha todos os campos!');
         return;
     }
 
-    let F = P * Math.pow((1 + i), t);
-    let resultado = `O montante final é R$ ${F.toFixed(2)}.`;
-    document.getElementById("resultado-compostos").innerText = resultado;
+    capital = parseFloat(capital);
+    taxa = parseFloat(taxa) / 100;
+    tempo = parseInt(tempo);
+
+    if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) {
+        alert('Por favor, insira valores válidos!');
+        return;
+    }
+
+    var montante = capital * (1 + (taxa * tempo));
+
+    document.getElementById('resultado').innerText = 'Montante: R$ ' + montante.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
