@@ -3,87 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educação Financeira: Juros Simples e Compostos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <title>Calculadora Financeira</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .app-bar {
+            background: #1f1f1f;
+            padding: 16px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .calculator {
+            background: #1e1e1e;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+        label {
+            margin: 8px 0 4px;
+            display: block;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #2c2c2c;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        button {
+            background: #6200ea;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #3700b3;
+        }
+        #resultado {
+            margin-top: 16px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            padding: 16px;
+            background: #1f1f1f;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Educação Financeira: Juros Simples e Compostos</h1>
-        <nav>
-            <ul>
-                <li><a href="#juros-simples">Juros Simples</a></li>
-                <li><a href="#juros-compostos">Juros Compostos</a></li>
-                <li><a href="#calculadora">Calculadoras</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="app-bar">Calculadora Financeira</div>
+    <div class="container">
+        <div class="calculator">
+            <label for="capital">Capital Inicial (R$):</label>
+            <input type="number" id="capital" placeholder="Ex: 1000">
 
-    <section id="juros-simples">
-        <h2>Juros Simples</h2>
-        <p>Juros Simples é um cálculo onde o valor dos juros é sempre o mesmo em cada período. A fórmula para o cálculo é:</p>
-        <img src="juros-simples.png" alt="Exemplo de Juros Simples">
-        <p><b>Fórmula:</b> <code>J = P × i × t</code></p>
-        <p>Onde:
-            <ul>
-                <li><b>J</b> = Juros</li>
-                <li><b>P</b> = Principal (valor inicial)</li>
-                <li><b>i</b> = Taxa de juros por período</li>
-                <li><b>t</b> = Tempo</li>
-            </ul>
-        </p>
-    </section>
+            <label for="taxa">Taxa de Juros (% ao mês):</label>
+            <input type="number" id="taxa" placeholder="Ex: 5">
 
-    <section id="juros-compostos">
-        <h2>Juros Compostos</h2>
-        <p>Nos Juros Compostos, o valor dos juros é calculado sobre o valor principal e os juros acumulados de períodos anteriores. A fórmula para o cálculo é:</p>
-        <img src="juros-compostos.png" alt="Exemplo de Juros Compostos">
-        <p><b>Fórmula:</b> <code>F = P × (1 + i)^t</code></p>
-        <p>Onde:
-            <ul>
-                <li><b>F</b> = Montante final</li>
-                <li><b>P</b> = Principal (valor inicial)</li>
-                <li><b>i</b> = Taxa de juros por período</li>
-                <li><b>t</b> = Tempo</li>
-            </ul>
-        </p>
-    </section>
+            <label for="tempo">Tempo (meses):</label>
+            <input type="number" id="tempo" placeholder="Ex: 12">
 
-    <section id="calculadora">
-        <h2>Calculadoras de Juros</h2>
-        
-        <div class="calculadora">
-            <h3>Calculadora de Juros Simples</h3>
-            <label for="principal-simples">Valor Principal (P):</label>
-            <input type="number" id="principal-simples" placeholder="Ex: 1000">
-            <label for="taxa-simples">Taxa de Juros (% ao ano):</label>
-            <input type="number" id="taxa-simples" placeholder="Ex: 5">
-            <label for="tempo-simples">Tempo (em anos):</label>
-            <input type="number" id="tempo-simples" placeholder="Ex: 3">
-            <button onclick="calcularJurosSimples()">Calcular</button>
-            <p id="resultado-simples"></p>
-        </div>
-
-        <div class="calculadora">
-            <h3>Calculadora de Juros Compostos</h3>
-            <label for="principal-compostos">Valor Principal (P):</label>
-            <input type="number" id="principal-compostos" placeholder="Ex: 1000">
-            <label for="taxa-compostos">Taxa de Juros (% ao ano):</label>
-            <input type="number" id="taxa-compostos" placeholder="Ex: 5">
-            <label for="tempo-compostos">Tempo (em anos):</label>
-            <input type="number" id="tempo-compostos" placeholder="Ex: 3">
             <button onclick="calcularJurosCompostos()">Calcular</button>
-            <p id="resultado-compostos"></p>
+            <h2 id="resultado"></h2>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Educação Financeira. Todos os direitos reservados. Feito por Carlos H. e João Mello</p>
-    </footer>
-
-    <footer>
-    <p>&copy; 2025 Educação Financeira. Todos os direitos reservados. Feito por Carlos H. e João Mello</p>
-    <p>Teste nossa <a href="https://clinkerskun.github.io/Calculadora/" target="_blank">Calculadora Completa</a> para mais recursos!</p>
-</footer>    
-    <script src="scripts.js"></script>
+    </div>
+    <div class="footer">
+        2025 Educação Financeira. Todos os direitos reservados. Feito por Carlos H. e João Mello
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
