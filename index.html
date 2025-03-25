@@ -84,7 +84,6 @@
 <body>
     <div class="app-bar">Calculadora Financeira</div>
     <div class="container">
-        <!-- Juros Simples -->
         <div class="calculator">
             <h2>Juros Simples</h2>
             <label for="principal-simples">Capital Inicial (R$):</label>
@@ -93,17 +92,13 @@
             <label for="taxa-simples">Taxa de Juros (% ao mês):</label>
             <input type="number" id="taxa-simples" placeholder="Ex: 5">
 
-            <label for="anos-simples">Anos:</label>
-            <input type="number" id="anos-simples" placeholder="Ex: 1">
-
             <label for="meses-simples">Meses:</label>
-            <input type="number" id="meses-simples" placeholder="Ex: 6">
+            <input type="number" id="anos-simples" placeholder="Ex: 12">
 
             <button onclick="calcularJurosSimples()">Calcular Juros Simples</button>
             <h2 id="resultado-simples"></h2>
         </div>
 
-        <!-- Juros Compostos -->
         <div class="calculator">
             <h2>Juros Compostos</h2>
             <label for="principal-compostos">Capital Inicial (R$):</label>
@@ -112,11 +107,8 @@
             <label for="taxa-compostos">Taxa de Juros (% ao mês):</label>
             <input type="number" id="taxa-compostos" placeholder="Ex: 5">
 
-            <label for="anos-compostos">Anos:</label>
-            <input type="number" id="anos-compostos" placeholder="Ex: 1">
-
             <label for="meses-compostos">Meses:</label>
-            <input type="number" id="meses-compostos" placeholder="Ex: 6">
+            <input type="number" id="anos-compostos" placeholder="Ex: 12">
 
             <button onclick="calcularJurosCompostos()">Calcular Juros Compostos</button>
             <h2 id="resultado-compostos"></h2>
