@@ -1,5 +1,5 @@
 // Função de Juros Simples
-window.onload = () => {
+window.onload = () => { 
 const calcularJurosSimples = () => {
     let P = parseFloat(document.getElementById("principal-simples").value);
     let i = parseFloat(document.getElementById("taxa-simples").value) / 100;
