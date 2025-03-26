@@ -12,7 +12,7 @@ function calcularJurosSimples() {
     }
 
     // Cálculo de Juros Simples
-    let J = P * i * (meses / 12); // Considera que a taxa é ao mês, então divide por 12 para ter a taxa anual
+    let J = P * i  // Considera que a taxa é ao mês, então divide por 12 para ter a taxa anual
     let resultado = `Os juros simples são R$ ${J.toFixed(2)}.`;
 
     // Exibe o resultado
