@@ -34,7 +34,7 @@ function calcularJurosCompostos() {
     }
 
     // Cálculo de Juros Compostos
-    let F = P * Math.pow((1 + i), (meses / 12)); // Considera que a taxa é ao mês, então divide por 12 para ter a taxa anual
+    let F = P * Math.pow((1 + i) // Considera que a taxa é ao mês, então divide por 12 para ter a taxa anual
     let resultado = `O montante final é R$ ${F.toFixed(2)}.`;
 
     // Exibe o resultado
