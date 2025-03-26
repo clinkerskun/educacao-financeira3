@@ -11,7 +11,7 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             background: #121212;
-            color: #ffffff;
+            color: #ffffff;                                                                                                 
             display: flex;
             flex-direction: column;
             height: 100vh;
@@ -93,7 +93,7 @@
             <input type="number" id="taxa-simples" placeholder="Ex: 5">
 
             <label for="meses-simples">Meses:</label>
-            <input type="number" id="anos-simples" placeholder="Ex: 12">
+            <input type="number" id="meses-simples" placeholder="Ex: 12">
 
             <button onclick="calcularJurosSimples()">Calcular Juros Simples</button>
             <h2 id="resultado-simples"></h2>
@@ -108,7 +108,7 @@
             <input type="number" id="taxa-compostos" placeholder="Ex: 5">
 
             <label for="meses-compostos">Meses:</label>
-            <input type="number" id="anos-compostos" placeholder="Ex: 12">
+            <input type="number" id="meses-compostos" placeholder="Ex: 12">
 
             <button onclick="calcularJurosCompostos()">Calcular Juros Compostos</button>
             <h2 id="resultado-compostos"></h2>
@@ -118,4 +118,29 @@
         2025 Educação Financeira. Todos os direitos reservados. Feito por Carlos H. e João Mello
     </div>
 </body>
+<script>
+    function calcularJurosSimples() {
+        let P = parseFloat(document.getElementById("principal-simples").value);
+        let i = parseFloat(document.getElementById("taxa-simples").value) / 100;
+        let meses = parseInt(document.getElementById("meses-simples").value) || 0;
+        if (isNaN(P) || isNaN(i) || isNaN(meses) || meses <= 0) {
+            alert("Preencha todos os campos corretamente com valores válidos.");
+            return;
+        }
+        let J = P * i * meses;
+        document.getElementById("resultado-simples").innerText = `Os juros simples são R$ ${J.toFixed(2)}.`;
+    }
+
+    function calcularJurosCompostos() {
+        let P = parseFloat(document.getElementById("principal-compostos").value);
+        let i = parseFloat(document.getElementById("taxa-compostos").value) / 100;
+        let meses = parseInt(document.getElementById("meses-compostos").value) || 0;
+        if (isNaN(P) || isNaN(i) || isNaN(meses) || meses <= 0) {
+            alert("Preencha todos os campos corretamente com valores válidos.");
+            return;
+        }
+        let F = P * Math.pow((1 + i), meses);
+        document.getElementById("resultado-compostos").innerText = `O montante final é R$ ${F.toFixed(2)}.`;
+    }
+</script>
 </html>
